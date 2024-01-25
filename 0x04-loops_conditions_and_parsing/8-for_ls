@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+# displays the content of the current working directory.
+
+for j in *
+do
+    echo "$j" | cut -d'-' -f2
+done
