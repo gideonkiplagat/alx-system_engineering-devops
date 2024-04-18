@@ -12,3 +12,5 @@ Build a robust database backup strategy
 #### man or help:
 
 mysqldump
+
+sudo mkdir -p /home/ubuntu/.ssh && touch /home/ubuntu/.ssh/authorized_keys
