@@ -8,7 +8,7 @@ import csv
 
 if __name__ == "__main__":
     response = get('https://jsonplaceholder.typicode.com/todos')
-    data = response.json() 
+    data = response.json()
     row = []
     response2 = get('https://jsonplaceholder.typicode.com/users')
     data2 = response2.json()
@@ -18,10 +18,10 @@ if __name__ == "__main__":
             employee = i['username']
             print("employee", employee, sep=" ")
             break
-            
-    filename = argv[1] + '.csv'        
+
+    filename = argv[1] + '.csv'
     with open(filename, mode='w', newline='') as file:
-        write = csv.writer(file, quoting=csv.QUOTE_ALL, lineterminator= '\n')
+        write = csv.writer(file, quoting=csv.QUOTE_ALL, lineterminator='\n')
         for i in data:
             row = []
             if i['userId'] == int(argv[1]):
