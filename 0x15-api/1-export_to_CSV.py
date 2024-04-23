@@ -1,9 +1,7 @@
 #!/usr/bin/python3
-
 """
 task #0, extend your Python script to export data in the CSV format.
 """
-
 from requests import get
 from sys import argv
 import csv
@@ -24,7 +22,6 @@ if __name__ == "__main__":
     filename = argv[1] + '.csv'        
     with open(filename, mode='w', newline='') as file:
         write = csv.writer(file, quoting=csv.QUOTE_ALL, lineterminator= '\n')
-
         for i in data:
             row = []
             if i['userId'] == int(argv[1]):
