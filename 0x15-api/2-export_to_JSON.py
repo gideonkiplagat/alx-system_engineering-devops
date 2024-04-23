@@ -24,9 +24,7 @@ if __name__ == "__main__":
     row = []
 
     for i in data:
-
         new_dict = {}
-
         if i['userId'] == int(argv[1]):
             new_dict['username'] = u_name
             new_dict['task'] = i['title']
@@ -37,6 +35,5 @@ if __name__ == "__main__":
     final_dict[id_no] = row
     json_obj = json.dumps(final_dict)
 
-    with open(argv[1] + ".json",  "w") as f:
+    with open(argv[1] + ".json", "w") as f:
         f.write(json_obj)
-        
