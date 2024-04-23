@@ -8,11 +8,9 @@ from requests import get
 from sys import argv
 import csv
 
-
 if __name__ == "__main__":
     response = get('https://jsonplaceholder.typicode.com/todos')
-    data = response.json()
-    
+    data = response.json() 
     row = []
     response2 = get('https://jsonplaceholder.typicode.com/users')
     data2 = response2.json()
@@ -34,5 +32,4 @@ if __name__ == "__main__":
                 row.append(employee)
                 row.append(i['completed'])
                 row.append(i['title'])
-
                 write.writerow(row)
