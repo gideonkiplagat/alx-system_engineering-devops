@@ -24,7 +24,7 @@ if __name__ == "__main__":
             break
             
     filename = argv[1] + '.csv'        
-    with open(filename, quotechar='"', mode='w', newline='') as file:
+    with open(filename, mode='w', newline='') as file:
         write = csv.writer(file, quoting=csv.QUOTE_ALL, lineterminator= '\n')
 
         for i in data:
@@ -32,7 +32,7 @@ if __name__ == "__main__":
             if i['userId'] == int(argv[1]):
                 row.append(i['userId'])
                 row.append(employee)
-                row.appendi['completed']
+                row.append(i['completed'])
                 row.append(i['title'])
 
                 write.writerow(row)
