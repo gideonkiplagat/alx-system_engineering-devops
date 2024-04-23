@@ -8,26 +8,25 @@ import json
 
 if __name__ == "__main__":
     response = get('https://jsonplaceholder.typicode.com/todos')
-    data = response.json()
+    todos_data = response.json()
 
-    row = []
     response1 = get('https://jsonplaceholder.typicode.com/users')
-    data1 = response1.json()
+    users_data = response1.json()
 
-    new_dict = {}
-    for j in data1:
-        row = []
-        for i in data:
-            new_dict1 = {}
-            if j['id'] == i['userId']:
-                new_dict1['username'] = j['username']
-                new_dict1['task'] = i['title']
-                new_dict1['completed'] = i['completed']
-                row.append(new_dict1)
+    all_users_tasks = {}
+    for user in users_data:
+        user_tasks = []
+        for todo in todos_data:
+            if user['id'] == todo['userId']:
+                task_info = {
+                    'username': user['username'],
+                    'task': todo['title'],
+                    'completed': todo['completed']
+                }
+                user_tasks.append(task_info)
 
-        new_dict1[j['id']] = row
-    
+        all_users_tasks[user['id']] = user_tasks
+
     with open("todo_all_employees.json", mode='w') as file:
-        json_obj = json.dumps(new_dict1)
+        json_obj = json.dumps(all_users_tasks)
         file.write(json_obj)
-
